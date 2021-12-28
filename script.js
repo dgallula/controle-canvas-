@@ -7,7 +7,39 @@ function Draw() {
   let L =document.getElementById('L').value;
   ctx.strokeStyle = 'blue';
   ctx.strokeRect(x, y, l, L);
+
+   // //  getCursorPosition(canvas,event)
+    
+   function getCursorPosition(canvas,event)  {
+    const rect = canvas.getBoundingClientRect();
+    const x1 = event.clientX - rect.left;
+   const y1 = event.clientY - rect.top; 
+    console.log("Coordinate x: " + x1, 
+                 "Coordinate y: " + y1);
+ }
+
+ const canvasElem = document.querySelector("canvas");
+  
+ canvasElem.addEventListener("mousedown", function(e)
+ {
+    getMousePosition(canvasElem, e);
+ });
+
+
 }
+
+//clear 
+
+function clear() {
+  let x =document.getElementById('x').value;
+  let y =document.getElementById('y').value;
+  let l =document.getElementById('l').value;
+  let L =document.getElementById('L').value;
+  ctx.strokeStyle = 'blue';
+  ctx.clearRect(x, y, l, L);
+}
+
+
 
 //  calcule de l'aire du rectangle 
 function rectangle() {
@@ -26,8 +58,7 @@ var area;
 
     window.onload = init;
 
-
-      //  regex 
+    //  regex 
 
     var validation = document.getElementById("Draw")
     var xAxios = document.getElementById("x")
@@ -40,7 +71,7 @@ var area;
      var xAxios_v = /^[0-9]/;
 
      
-     var yAyios_m = document.getElementById("error-yAxios")
+     var yAyios_m = document.getElementById("error-yAyios")
      var yAyios_v = /^[0-9]/;
 
      
@@ -60,7 +91,7 @@ function f_valid(e) {
 
    if (xAxios.validity.valueMissing) {
      e.preventDefault();
-     xAxios_m.innerText = 'Prenom manquant';
+     xAxios_m.innerText = 'error';
      prenom_m.style.color = 'red';
   } else if (prenom_v.test(xAxios.value )== false ) {
     event.preventDefault();
@@ -117,23 +148,51 @@ if (w.validity.valueMissing) {
 
 } 
 
+  //  bonus  fonction onload 
+ 
+// fonction rundom rectangle
 
-    // //  getCursorPosition(canvas,event)
-    
-      function getCursorPosition(canvas,event)  {
-        const rect = canvas.getBoundingClientRect();
-        const x1 = event.clientX - rect.left;
-       const y1 = event.clientY - rect.top; 
-        console.log("Coordinate x: " + x1, 
-                     "Coordinate y: " + y1);
-     }
+  function canvasRandomSquare (){
+
+var ctx = document.getElementById('myCanvas').getContext('2d');
+   
+ context.fillRect(x, y, width, height);
+ 
+var r = Math.floor((Math.random() * 256));
+var g = Math.floor((Math.random() * 256));
+var b = Math.floor((Math.random() * 256));  
+   
+var x = Math.floor((Math.random() * 20) + 1);
+var y = Math.floor((Math.random() * 20) + 1);
+var width = Math.floor((Math.random() * 400) + 100);
+var height = Math.floor((Math.random() * 300) + 100);
+ 
+ctx.fillStyle = 'rgb(' + r + ',' + g + ', ' + b + ')';
+ctx.fillRect(x, y, width, height);
+
+  }
   
-     const canvasElem = document.querySelector("canvas");
-      
-     canvasElem.addEventListener("mousedown", function(e)
-     {
-        getMousePosition(canvasElem, e);
-     });
+  // bonus fonction onload : pour fqire apparaitre les rectangles random en settimout
 
-     
+ 
+  function load() {
+      setTimeout(()=> {
+        var ctx = document.getElementById('myCanvas').getContext('2d');
+   
+ context.fillRect(x, y, width, height);
+ 
+var r = Math.floor((Math.random() * 256));
+var g = Math.floor((Math.random() * 256));
+var b = Math.floor((Math.random() * 256));  
+   
+var x = Math.floor((Math.random() * 20) + 1);
+var y = Math.floor((Math.random() * 20) + 1);
+var width = Math.floor((Math.random() * 400) + 100);
+var height = Math.floor((Math.random() * 300) + 100);
+ 
+ctx.fillStyle = 'rgb(' + r + ',' + g + ', ' + b + ')';
+ctx.fillRect(x, y, width, height);
 
+  },3000);
+
+}
