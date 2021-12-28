@@ -44,12 +44,12 @@ var area;
      var yAyios_v = /^[0-9]/;
 
      
-     var h_m = document.getElementById("error-yAxios")
+     var h_m = document.getElementById("error-h")
      var h_v = /^[0-9]/;
 
     
      
-     var w_m = document.getElementById("error-yAxios")
+     var w_m = document.getElementById("error-w")
      var w_v = /^[0-9]/;
  
    
@@ -118,8 +118,6 @@ if (w.validity.valueMissing) {
 } 
 
 
-
-
     // //  getCursorPosition(canvas,event)
     
       function getCursorPosition(canvas,event)  {
@@ -138,3 +136,4 @@ if (w.validity.valueMissing) {
      });
 
      
+
