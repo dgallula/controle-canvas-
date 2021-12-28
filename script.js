@@ -16,9 +16,9 @@ function Draw() {
    const y1 = event.clientY - rect.top; 
     console.log("Coordinate x: " + x1, 
                  "Coordinate y: " + y1);
- }
+ 
 
- const canvasElem = document.querySelector("canvas");
+ const canvasElem = document.querySelector("myCanvas");
   
  canvasElem.addEventListener("mousedown", function(e)
  {
@@ -150,31 +150,31 @@ if (w.validity.valueMissing) {
 
   //  bonus  fonction onload 
  
-// fonction rundom rectangle
-
-  function canvasRandomSquare (){
-
-var ctx = document.getElementById('myCanvas').getContext('2d');
-   
- context.fillRect(x, y, width, height);
- 
-var r = Math.floor((Math.random() * 256));
-var g = Math.floor((Math.random() * 256));
-var b = Math.floor((Math.random() * 256));  
-   
-var x = Math.floor((Math.random() * 20) + 1);
-var y = Math.floor((Math.random() * 20) + 1);
-var width = Math.floor((Math.random() * 400) + 100);
-var height = Math.floor((Math.random() * 300) + 100);
- 
-ctx.fillStyle = 'rgb(' + r + ',' + g + ', ' + b + ')';
-ctx.fillRect(x, y, width, height);
-
-  }
   
   // bonus fonction onload : pour fqire apparaitre les rectangles random en settimout
-
- 
+  
+  // fonction rundom rectangle
+  
+    function canvasRandomSquare (){
+  
+  var ctx = document.getElementById('myCanvas').getContext('2d');
+     
+   context.fillRect(x, y, width, height);
+   
+  var r = Math.floor((Math.random() * 256));
+  var g = Math.floor((Math.random() * 256));
+  var b = Math.floor((Math.random() * 256));  
+     
+  var x = Math.floor((Math.random() * 20) + 1);
+  var y = Math.floor((Math.random() * 20) + 1);
+  var width = Math.floor((Math.random() * 400) + 100);
+  var height = Math.floor((Math.random() * 300) + 100);
+   
+  ctx.fillStyle = 'rgb(' + r + ',' + g + ', ' + b + ')';
+  ctx.fillRect(x, y, width, height);
+  
+    }
+  
   function load() {
       setTimeout(()=> {
         var ctx = document.getElementById('myCanvas').getContext('2d');
@@ -195,4 +195,5 @@ ctx.fillRect(x, y, width, height);
 
   },3000);
 
+}
 }
