@@ -116,3 +116,25 @@ if (w.validity.valueMissing) {
    }
 
 } 
+
+
+
+
+    // //  getCursorPosition(canvas,event)
+    
+      function getCursorPosition(canvas,event)  {
+        const rect = canvas.getBoundingClientRect();
+        const x1 = event.clientX - rect.left;
+       const y1 = event.clientY - rect.top; 
+        console.log("Coordinate x: " + x1, 
+                     "Coordinate y: " + y1);
+     }
+  
+     const canvasElem = document.querySelector("canvas");
+      
+     canvasElem.addEventListener("mousedown", function(e)
+     {
+        getMousePosition(canvasElem, e);
+     });
+
+     
